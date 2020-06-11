@@ -1,7 +1,9 @@
 const  mongoose = require('mongoose');
 
 const recipeSchema = new mongoose.Schema({
-  text: String
+  text: String,
+  upvotes: Number,
+  downvotes: Number,
 }, {
   timestamps: true
 });
@@ -9,7 +11,6 @@ const recipeSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
   name: String,
   email: String,
-  avatar: String,
   recipes: [recipeSchema],
   googleId: String
 }, {

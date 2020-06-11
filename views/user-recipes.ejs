@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <title>Recipes</title>
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">My Recipes</h1>
+    </div>
+  </div>
+  <div class="container" >
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Recipe Title</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="eg.. nanas chicken stew">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Time</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="eg.. 45 mins">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Recipe details</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Submit recipe</button>
+    <div>
+      <a href="http://localhost:3000/recipes">View Community Recipes</a>
+    </div>
+  </form>
+  <hr/>
+  </div>
+  <div class="container">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Crispy roast potatoes</h5>
+        <h6 class="card-subtitle mb-2 text-muted">40 mins</h6>
+        <p class="card-text">Preheat oven to 450f, Peel potatoes, boil pan of water, 1tsp on baking soda, 1tsp of table salt, 
+          boil untill soft but not falling apart. Drain off potatoes and let steam evaporate. Once evaporated lay potatoes on 
+          baking tray and evenly cover with oil. Bake for 18 minutes at 200c / 400f turning halfway through (remember potatoes are already cooked we just want to "crispen"
+          the edges) done!   </p>
+        <h6 class="card-subtitle mb-2 text-muted">Bruce</h6>
+        <a href="#" class="card-link">Delete</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

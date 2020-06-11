@@ -5,9 +5,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 require('./config/passport.js');
-
-//require the todo database
-const todoDB = require('./data/todo-db')
+require('./config/database.js');
 
 //Create express app
 const app = express();
@@ -27,10 +25,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Mount routes
-
-
 app.get('/', function(req, res){
-  res.redirect('/home');
+  res.redirect('home');
 });
 
 app.get('/home', function(req, res){
@@ -41,12 +37,9 @@ app.get('/recipes', function (req, res) {
   res.render('recipes');
 });
 
-//Sample code 
-// app.get('/todos', function(req, res){
-//   res.render('todos/index', {
-//     todos: todoDB.getAll()
-//   });
-// });
+app.get('/user-recipes', function (req, res) {
+  res.render('user-recipes');
+});
 
 app.listen(3000, function(){
   console.log('listening on port 3000');
