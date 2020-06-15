@@ -8,7 +8,7 @@ router.get('/', usersCtrl.index);
 router.get('/home', usersCtrl.index);
 
 // POST / (recipe)
-router.post('/user-recipes', isLoggedIn, userCtrl.addRecipe);
+router.post('/user-recipes', isLoggedIn, usersCtrl.addRecipe);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

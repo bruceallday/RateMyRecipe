@@ -33,7 +33,6 @@ function addRecipe(req, res, next) {
   });
 }
 
-
 function delRecipe(req, res, next) {
   User.findOne({ 'recipes._id': req.params.id }, function (error, user) {
     user.recipes.id(req.params.id).remove();
