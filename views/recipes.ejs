@@ -14,7 +14,26 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">Recipes! 🥘 🍲 🧆 🍙 🥗 🌯 🍕 🍔 🥞 🌮 </h1>
-      <p> get hungry.. </p>
+      <hr>
+    </div>
+    <div class="container" >
+      <h3>Post a recipe</h3>
+      <form action="/recipes" method="POST">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Recipe Title</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg.. nanas chicken stew" required >
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Time</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg.. 45 mins" required >
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Recipe details</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit recipe</button>
+      </form>
+      <a href="/logout" method="GET">Log out</a>
     </div>
   </div>
   <div class="container">

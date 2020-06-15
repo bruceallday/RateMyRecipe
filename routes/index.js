@@ -8,7 +8,7 @@ router.get('/', usersCtrl.index);
 router.get('/home', usersCtrl.index);
 
 // POST / (recipe)
-router.post('/user-recipes', isLoggedIn, usersCtrl.addRecipe);
+router.post('/recipes', isLoggedIn, usersCtrl.addRecipe);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
@@ -32,17 +32,13 @@ router.get('/oauth2callback', passport.authenticate(
   }
 ));
 
-// router.get('/logout', function (req, res) {
-//   req.logout();
-//   res.redirect('/');
-// });
+router.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/');
+});
 
 router.get('/recipes', function (req, res) {
   res.render('recipes');
-});
-
-router.get('/user-recipes', function (req, res) {
-  res.render('user-recipes');
 });
 
 module.exports = router;
