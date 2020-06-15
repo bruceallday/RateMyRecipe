@@ -7,6 +7,17 @@ const usersCtrl = require('../controllers/users');
 router.get('/', usersCtrl.index);
 router.get('/home', usersCtrl.index);
 
+// POST / (recipe)
+router.post('/user-recipes', isLoggedIn, userCtrl.addRecipe);
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/auth/google');
+}
+
+// DELETE /facts/:id
+// router.delete('/facts/:id', studentsCtrl.delRecipe);
+
 //OAUTH Routess
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -33,7 +44,5 @@ router.get('/recipes', function (req, res) {
 router.get('/user-recipes', function (req, res) {
   res.render('user-recipes');
 });
-
-
 
 module.exports = router;
