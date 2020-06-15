@@ -17,7 +17,7 @@ function index(req, res, next) {
     .sort(sortKey).exec(function (err, users) {
       if (err) return next(err);
       // Passing search values, name & sortKey, for use in the EJS
-      res.render('index/home', {
+      res.render('/home', {
         users,
         user: req.user,
         name: req.query.name,
@@ -32,6 +32,7 @@ function addRecipe(req, res, next) {
     res.redirect('/recipes');
   });
 }
+
 
 function delRecipe(req, res, next) {
   User.findOne({ 'recipes._id': req.params.id }, function (error, user) {

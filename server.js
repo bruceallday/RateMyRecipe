@@ -41,6 +41,24 @@ app.get('/user-recipes', function (req, res) {
   res.render('user-recipes');
 });
 
+app.get('/auth/google', passport.authenticate(
+  'google',
+  { scope: ['profile', 'email'] }
+));
+
+app.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect: '/recipes',
+    failureRedirect: '/home'
+  }
+));
+
+app.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/home');
+});
+
 app.listen(3000, function(){
   console.log('listening on port 3000');
 });
