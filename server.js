@@ -24,40 +24,28 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//static assets path
+app.use(express.static(path.join(__dirname, 'public')));
+
+var indexRoutes = require('./routes/index');
 //Mount routes
-app.get('/', function(req, res){
-  res.redirect('home');
-});
+// app.get('/', function(req, res){
+//   res.redirect('home');
+// });
 
-app.get('/home', function(req, res){
-  res.render('home');
-});
+// app.get('/home', function(req, res){
+//   res.render('home');
+// });
 
-app.get('/recipes', function (req, res) {
-  res.render('recipes');
-});
+// app.get('/recipes', function (req, res) {
+//   res.render('recipes');
+// });
 
-app.get('/user-recipes', function (req, res) {
-  res.render('user-recipes');
-});
+// app.get('/user-recipes', function (req, res) {
+//   res.render('user-recipes');
+// });
 
-app.get('/auth/google', passport.authenticate(
-  'google',
-  { scope: ['profile', 'email'] }
-));
-
-app.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
-    successRedirect: '/recipes',
-    failureRedirect: '/home'
-  }
-));
-
-app.get('/logout', function (req, res) {
-  req.logout();
-  res.redirect('/home');
-});
+app.use('/', indexRoutes);
 
 app.listen(3000, function(){
   console.log('listening on port 3000');

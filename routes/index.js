@@ -1,25 +1,39 @@
+
 const router = require('express').Router();
 const passport = require('passport');
 
-router.get('/', function (req, res) {
-  res.redirect('/home');
-});
+// GET / (home)
+const usersCtrl = require('../controllers/users');
+router.get('/', usersCtrl.index);
+router.get('/home', usersCtrl.index);
 
-// router.get('/auth/google', passport.authenticate(
-//   'google',
-//   { scope: ['profile', 'email'] }
-// ));
+//OAUTH Routess
+router.get('/auth/google', passport.authenticate(
+  'google',
+  { scope: ['profile', 'email'] }
+));
 
-// router.get('/oauth2callback', passport.authenticate(
-//   'google',
-//   {
-//     successRedirect: '/recipes',
-//     failureRedirect: '/home'
-//   }
-// ));
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect: '/recipes',
+    failureRedirect: '/'
+  }
+));
 
 // router.get('/logout', function (req, res) {
 //   req.logout();
-//   res.redirect('/home');
+//   res.redirect('/');
 // });
 
+router.get('/recipes', function (req, res) {
+  res.render('recipes');
+});
+
+router.get('/user-recipes', function (req, res) {
+  res.render('user-recipes');
+});
+
+
+
+module.exports = router;
