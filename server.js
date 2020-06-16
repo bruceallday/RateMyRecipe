@@ -15,6 +15,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //Mount middleware
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
   secret: 'NOT_TELLING',
@@ -24,11 +27,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//static assets path
-app.use(express.static(path.join(__dirname, 'public')));
 
-var indexRoutes = require('./routes/index');
 //Mount routes
+var indexRoutes = require('./routes/index');
+
+
 // app.get('/', function(req, res){
 //   res.redirect('home');
 // });

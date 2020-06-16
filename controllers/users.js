@@ -1,4 +1,9 @@
 const User = require('../models/users.js');
+const Recipe = require('../models/recipes.js');
+
+const mongoose = require('mongoose');
+const db_collections = mongoose.connection.collections;
+// console.log('collections from db in uxer controllers', db_collections)
 
 module.exports = {
   index,
@@ -7,7 +12,6 @@ module.exports = {
 };
 
 function index(req, res, next) {
-  console.log(req.query)
   // Make the query object to use with user.find based up
   // the user has submitted the search form or now
   let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
@@ -27,10 +31,12 @@ function index(req, res, next) {
 }
 
 function addRecipe(req, res, next) {
-  req.user.recipes.push(req.body);
-  req.user.save(function (error) {
-    res.redirect('/recipes');
-  });
+  console.log('req body ', req.body)
+  
+  // req.user.save(function (error) {
+  //   // res.redirect('/recipes');
+  // });
+  res.redirect('/recipes');
 }
 
 function delRecipe(req, res, next) {

@@ -8,7 +8,7 @@ router.get('/', usersCtrl.index);
 router.get('/home', usersCtrl.index);
 
 // POST / (recipe)
-router.post('/recipes', isLoggedIn, usersCtrl.addRecipe);
+router.post('/add-recipe',  usersCtrl.addRecipe);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
@@ -37,8 +37,8 @@ router.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-router.get('/recipes', function (req, res) {
-  res.render('recipes');
-});
+const recipeCtrl = require('../controllers/recipe')
+
+router.get('/recipes', recipeCtrl.index);
 
 module.exports = router;

@@ -18,20 +18,24 @@
     </div>
     <div class="container" >
       <h3>Post a recipe</h3>
-      <form action="/recipes" method="POST">
+      <form action="/add-recipe" method="POST">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Recipe Title</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg.. nanas chicken stew" required >
+          <label for="user-name">User name</label>
+          <input type="text" class="form-control" id="user-name" name="user-name" value=<%= user.id %> />
         </div>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Time</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg.. 45 mins" required >
+          <label for="recipe-name">Recipe Title</label>
+          <input type="text" class="form-control" id="recipe-name" name="recipe-name" placeholder="eg.. nanas chicken stew" required />
         </div>
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Recipe details</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+          <label for="recipe-time">Time</label>
+          <input type="text" class="form-control" id="recipe-time" name='recipe-time'  placeholder="eg.. 45 mins" required />
         </div>
-        <button type="submit" class="btn btn-primary mb-2">Submit recipe</button>
+        <div class="form-group">
+          <label for="recipe-details">Recipe details</label>
+          <textarea class="form-control" id="recipe-details" name="recipe-details" rows="3" required></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary mb-2" value="Submit" />
       </form>
       <a href="/logout" method="GET">Log out</a>
     </div>

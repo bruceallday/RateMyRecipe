@@ -1,7 +1,9 @@
 const  mongoose = require('mongoose');
 
 const recipeSchema = new mongoose.Schema({
-  text: String,
+  title: String,
+  time: String,
+  Details: String,
   upvotes: Number,
   downvotes: Number,
 }, {
@@ -17,4 +19,5 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('Recipe', recipeSchema)
