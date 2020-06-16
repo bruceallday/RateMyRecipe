@@ -1,14 +1,7 @@
 const User = require('../models/users.js');
-const Recipe = require('../models/recipes.js');
-
-const mongoose = require('mongoose');
-const db_collections = mongoose.connection.collections;
-// console.log('collections from db in uxer controllers', db_collections)
 
 module.exports = {
   index,
-  addRecipe,
-  delRecipe
 };
 
 function index(req, res, next) {
@@ -28,22 +21,4 @@ function index(req, res, next) {
         sortKey
       });
     });
-}
-
-function addRecipe(req, res, next) {
-  console.log('req body ', req.body)
-  
-  // req.user.save(function (error) {
-  //   // res.redirect('/recipes');
-  // });
-  res.redirect('/recipes');
-}
-
-function delRecipe(req, res, next) {
-  User.findOne({ 'recipes._id': req.params.id }, function (error, user) {
-    user.recipes.id(req.params.id).remove();
-    user.save(function (error) {
-      res.redirect('/recipes');
-    });
-  });
 }

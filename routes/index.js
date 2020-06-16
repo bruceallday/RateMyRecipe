@@ -2,23 +2,12 @@
 const router = require('express').Router();
 const passport = require('passport');
 
-// GET / (home)
-const usersCtrl = require('../controllers/users');
-router.get('/', usersCtrl.index);
-router.get('/home', usersCtrl.index);
-
-// POST / (recipe)
-router.post('/add-recipe',  usersCtrl.addRecipe);
-
+// ----- OAUTH Routes and Helpers -----
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect('/auth/google');
 }
 
-// DELETE /facts/:id
-// router.delete('/facts/:id', studentsCtrl.delRecipe);
-
-//OAUTH Routess
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
@@ -36,9 +25,22 @@ router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
 });
+// ----- OAUTH ends -----
 
+
+// GET / aka home page
+const usersCtrl = require('../controllers/users');
+router.get('/', usersCtrl.index);
+router.get('/home', usersCtrl.index);
+
+// GET /recipes page
 const recipeCtrl = require('../controllers/recipe')
+router.get('/recipes', isLoggedIn, recipeCtrl.index);
+// POST /add-recipe
+router.post('/add-recipe', isLoggedIn, recipeCtrl.addRecipe);
 
-router.get('/recipes', recipeCtrl.index);
+
+// DELETE /facts/:id
+// router.delete('/facts/:id', studentsCtrl.delRecipe);
 
 module.exports = router;

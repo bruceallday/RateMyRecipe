@@ -1,11 +1,14 @@
-// const mongoose = requite('mongoose');
+const mongoose = require('mongoose');
 
-// const recipeSchema = new mongoose.Schema({
-//   text: String,
-//   upvotes: Number,
-//   downvotes: Number,
-// }, {
-//   timestamps: true
-// });
+const recipeSchema = new mongoose.Schema({
+  title: String,
+  time: String,
+  description: String,
+  username: String,
+  upvotes: Number,
+  downvotes: Number,
+}, {
+  timestamps: true
+});
 
-// module.exports = mongoose.model('Recipe', recipeSchema);
+module.exports = mongoose.model('Recipe', recipeSchema);

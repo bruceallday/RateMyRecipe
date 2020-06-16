@@ -1,55 +1,56 @@
 // Require modules
 const express = require('express');
 const path = require('path');
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const passport = require('passport');
-require('./config/passport.js');
-require('./config/database.js');
+
+const session = require('express-session'); //session middleware
+const passport = require('passport');       //passport middleware
+const methodOverride = require('method-override');
+
+require('dotenv').config(); //env vars loading
 
 //Create express app
 const app = express();
 
-//Configure the app
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+//middleware configs
+require('./config/passport.js');
+require('./config/database.js');
 
-//Mount middleware
+//Set up the views of the routes
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+//Configure the express app
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+//mount session middleware
 app.use(session({
   secret: 'NOT_TELLING',
   resave: false,
   saveUninitialized: true
 }))
+
+//start passport and use session
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 //Mount routes
-var indexRoutes = require('./routes/index');
-
-
-// app.get('/', function(req, res){
-//   res.redirect('home');
-// });
-
-// app.get('/home', function(req, res){
-//   res.render('home');
-// });
-
-// app.get('/recipes', function (req, res) {
-//   res.render('recipes');
-// });
-
-// app.get('/user-recipes', function (req, res) {
-//   res.render('user-recipes');
-// });
-
+const indexRoutes = require('./routes/index');
 app.use('/', indexRoutes);
 
-app.listen(3000, function(){
-  console.log('listening on port 3000');
+//404 error for bad request
+app.use(function (req, res) {
+  res.status(404).send('Cant find that!');
 });
+
+module.exports = app;
+
+// app.listen(3000, function(){
+//   console.log('listening on port 3000');
+// });
