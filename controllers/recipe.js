@@ -23,21 +23,6 @@ function index(req, res, next) {
           sortKey
         });
       })
-      // Passing search values, name & sortKey, for use in the EJS
-    //   res.render('recipes', {
-    //     users,
-    //     user: req.user,
-    //     name: req.query.name,
-    //     sortKey
-    //   });
-    // });
-  // Recipe.find({}, function (error, recipes){
-  //   if (error) console.log('ERROR when retireving recipes >>> ', error)
-  //   console.log('recipes from databse >>>> ', typeof(recipes))
-  //   res.render('recipes', {
-  //     recipes,
-  //     recipeArr: recipes[0]
-  //   })
   })
 }
 
