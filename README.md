@@ -1,11 +1,11 @@
 # Rate my recipes!
-## [Rate my recipes](https://google.com) 
-![](./Screenshot%202020-06-17%20at%2016.16.46.png)
+### [Rate my recipes](https://google.com) 
+![](./screenshot.png)
 
 ### Run locally
 ???
 
-### Technologies used
+## Technologies used
 * [MongoDB](https://www.mongodb.com/)
 * [Expressjs](https://expressjs.com/)
 * [Node](https://nodejs.org/)
@@ -14,7 +14,7 @@
 * [Bootstrap](https://getbootstrap.com/)
 * [OAuth 2.0](https://oauth.net/2/)
 
-# Features
+## Features
  * Secure OAuth authentication and authorization 
  * Add your recipes to the mongoDB atlas database
  * Upvote or downvote other users recipes
@@ -32,7 +32,7 @@ const newSchema = new mongoose.Schema({
 });
 module.exports = mongoose.model('NewSchema', newSchema);
 ```
-Use ejs template tagging to dynamically change the views based on the data from mongoDB atlas
+Use ejs template tagging to dynamically change the views based on the data passed from the controller
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -51,18 +51,15 @@ Use ejs template tagging to dynamically change the views based on the data from 
   </body>
 </html>
 ```
-Creat a controller to handke the data between the database and our .ejs views
+Creat a controller to handle the data between the database and our .ejs views
 ```javascript
 function index(req, res, next) {
-  let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
-  let sortKey = req.query.sort || 'name';
   //Search for user based on query
-  User.find(modelQuery)
-    .sort(sortKey).exec(function (err, users) {
-      if (err) return next(err);
+  User.find(query)
+    .sort(param).exec(function (err, users) {
       //Return all recipes from database
       Recipe.find({}, function (error, recipes) {
-        //Pass user and recipes variables to our .ejs 'recipe'  view
+        //Pass user and recipes variables to our .ejs 'recipes'  view
         res.render('recipes', {
           users,
           recipes,
@@ -91,4 +88,4 @@ router.get('/recipes', isLoggedIn, recipeCtrl.index);
 (MIT)
 
 ## Acknowledgments
-[@NovelCOVID](https://github.com/NovelCOVID)
+[@GeneralAssembly](https://generalassemb.ly/)
