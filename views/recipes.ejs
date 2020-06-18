@@ -16,7 +16,7 @@
   <p class="d-none"><%=recipes%></p>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4">Recipes! 🥘 🍲 🧆 🍙 🥗 🌯 🍕 🍔 🥞 🌮 </h1>
+      <h2 class="display-4">Rate My Recipe</h2>
       <hr>
     </div>
     <div class="container">
@@ -48,21 +48,27 @@
   <div class="container">
     <div class="row">
       <% for(var i=0; i < recipes.length; i++) { %>
-      <div class="container">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= recipes[i].title %> by - <%= recipes[i].username %></h5>
-            <h6 class="card-title"><%= recipes[i].time %></h6>
-            <p class="card-text"><%= recipes[i].description %> </p>
-            <div class="main-vote-container">
-              <div class="vote-container">
-                <a class="voteThumb" href="">👍</a>
-                <p class="voteNum"><%= recipes[i].upvotes %></p>
+      <div class="main-container">
+        <div class="container">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= recipes[i].title %> by - <%= recipes[i].username %></h5>
+              <h6 class="card-title"><%= recipes[i].time %></h6>
+              <p class="card-text"><%= recipes[i].description %> </p>
+              <div class="main-vote-container">
+                <div class="vote-container">
+                  <a class="voteThumb" href="">👍</a>
+                  <p class="voteNum"><%= recipes[i].upvotes %></p>
+                </div>
+                <div class="vote-container">
+                  <a class="voteThumb" href="">👎</a>
+                  <p class="voteNum"><%= recipes[i].downvotes %></p>
+                </div>
               </div>
-              <div class="vote-container">
-                <a class="voteThumb" href="">👎</a>
-                <p class="voteNum"><%= recipes[i].downvotes %></p>
-              </div>
+              <% if (recipes[i].username === user.name) { %>
+              <a style="margin-right: 1%;" href="/logout" method="GET">delete</a>
+              <a href="/logout" method="GET">update</a>
+              <% } %>
             </div>
           </div>
         </div>

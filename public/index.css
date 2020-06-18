@@ -5,6 +5,10 @@
   justify-content: space-evenly;
 }
 
+.main-container{
+  margin: 1%;
+}
+
 .vote-container {
   width: 25%;
   display: flex;
