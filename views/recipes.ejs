@@ -48,23 +48,27 @@
   <div class="container">
     <div class="row">
       <% for(var i=0; i < recipes.length; i++) { %>
-      <div class="container"></div>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= recipes[i].title %> by - <%= recipes[i].username %></h5>
-          <h6 class="card-title"><%= recipes[i].time %></h6>
-          <p class="card-text"><%= recipes[i].description %> </p>
-          <div class="vote-container">
-            <a href="">➕</a>
-            <p><%= recipes[i].upvotes %></p>
-            <a href="">➖</a>
-            <p><%= recipes[i].downvotes %></p>
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= recipes[i].title %> by - <%= recipes[i].username %></h5>
+            <h6 class="card-title"><%= recipes[i].time %></h6>
+            <p class="card-text"><%= recipes[i].description %> </p>
+            <div class="main-vote-container">
+              <div class="vote-container">
+                <a class="voteThumb" href="">👍</a>
+                <p class="voteNum"><%= recipes[i].upvotes %></p>
+              </div>
+              <div class="vote-container">
+                <a class="voteThumb" href="">👎</a>
+                <p class="voteNum"><%= recipes[i].downvotes %></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <% } %>
     </div>
-  </div>
   </div>
 </body>
 
