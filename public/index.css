@@ -9,6 +9,16 @@
   margin: 1%;
 }
 
+.user-options-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.user-options {
+  margin-left: 2% ;
+}
+
 .vote-container {
   width: 25%;
   display: flex;

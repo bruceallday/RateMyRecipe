@@ -66,8 +66,10 @@
                 </div>
               </div>
               <% if (recipes[i].username === user.name) { %>
-              <a style="margin-right: 1%;" href="/logout" method="GET">delete</a>
-              <a href="/logout" method="GET">update</a>
+              <div class="user-options-container">
+                <a class="user-options" href="/logout" method="GET">delete</a>
+                <a class="user-options" href="/logout" method="GET">update</a>
+              </div>
               <% } %>
             </div>
           </div>
