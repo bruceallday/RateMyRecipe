@@ -10,7 +10,6 @@ function index(req, res, next) {
     .sort(sortKey).exec(function (err, users) {
       if (err) return next(err);
       Recipe.find({}, function (error, recipes) {
-        console.log('recipes from databse >>>> ', (recipes))
         res.render('recipes', {
           users,
           recipes,
@@ -25,8 +24,6 @@ function index(req, res, next) {
 function addRecipe(req, res, next) {
   const data = req.body;
   User.findOne({ 'users._id': req.body.id }, function (error, user) {
-    console.log("user", user)
-
     const newRecipe = new Recipe({
       title: data.recipeTitle,
       time: data.recipeTime,
@@ -42,11 +39,11 @@ function addRecipe(req, res, next) {
 }
 
 function delRecipe(req, res, next) {
-  // User.findOne({ 'recipes._id': req.params.id }, function (error, user) {
-  //   user.recipes.id(req.params.id).remove();
-  //   user.save(function (error) {
-  //     res.redirect('/recipes');
-  //   });
-  // });
+  console.log('FN delReipe >>> req.params:', req.params)
+  Recipe.deleteOne({ '_id': req.params.id }, function (err, recipe) {
+    console.log('error >>>> ', err)
+    console.log('recipe >>>> ', recipe)
+    res.redirect('/recipes');
+  });
 }
 

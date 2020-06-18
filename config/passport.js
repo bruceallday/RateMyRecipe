@@ -12,10 +12,8 @@ passport.use(new GoogleStrategy({
     User.findOne({ 'googleId': profile.id }, function (error, user) {
       if (error) return callBack(error);
       if (user) {
-        console.log('user found >>', user)
         return callBack(null, user);
       } else {
-        console.log('user not found >> new profile >>', profile.displayName)
         const newUser = new User({
           name: profile.displayName,
           email: profile.emails[0].value,
