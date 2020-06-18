@@ -6,68 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
   <title>Recipes</title>
 </head>
 
-  <body>
-    <p class="d-none"><%=user.id%></p>
-    <p class="d-none"><%=user.name%></p>
-    <p class="d-none"><%=recipes%></p>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Recipes! 🥘 🍲 🧆 🍙 🥗 🌯 🍕 🍔 🥞 🌮 </h1>
-        <hr>
-      </div>
-      <div class="container" >
-        <h3>Post a recipe</h3>
-        <form action="/add-recipe" method="POST">
-          <div class="form-group d-none">
-            <label for="userId">User name</label>
-            <input type="text" class="form-control" id="user-id" name="userId" value=<%= user.id %> />
-          </div>
-          <div class="form-group">
-            <label for="recipeTitle">Recipe Title</label>
-            <input type="text" class="form-control" id="recipe-title" name="recipeTitle" placeholder="eg.. nanas chicken stew" required />
-          </div>
-          <div class="form-group">
-            <label for="recipeTime">Time</label>
-            <input type="text" class="form-control" id="recipe-time" name='recipeTime'  placeholder="eg.. 45 mins" required />
-          </div>
-          <div class="form-group">
-            <label for="recipeDescription">Recipe details</label>
-            <textarea class="form-control" id="recipe-details" name="recipeDescription" rows="3" required></textarea>
-          </div>
-          <input type="submit" class="btn btn-primary mb-2" value="Submit" />
-        </form>
-        <a href="/logout" method="GET">Log out</a>
-      </div>
+<body>
+  <p class="d-none"><%=user.id%></p>
+  <p class="d-none"><%=user.name%></p>
+  <p class="d-none"><%=recipes%></p>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Recipes! 🥘 🍲 🧆 🍙 🥗 🌯 🍕 🍔 🥞 🌮 </h1>
+      <hr>
     </div>
     <div class="container">
-      <div class="card" style="width: 18rem;">
+      <h3>Post a recipe</h3>
+      <form action="/add-recipe" method="POST">
+        <div class="form-group d-none">
+          <label for="userId">User name</label>
+          <input type="text" class="form-control" id="user-id" name="userId" value=<%= user.id %> />
+        </div>
+        <div class="form-group">
+          <label for="recipeTitle">Recipe Title</label>
+          <input type="text" class="form-control" id="recipe-title" name="recipeTitle"
+            placeholder="eg.. nanas chicken stew" required />
+        </div>
+        <div class="form-group">
+          <label for="recipeTime">Time</label>
+          <input type="text" class="form-control" id="recipe-time" name='recipeTime' placeholder="eg.. 45 mins"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="recipeDescription">Recipe details</label>
+          <textarea class="form-control" id="recipe-details" name="recipeDescription" rows="3" required></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary mb-2" value="Submit" />
+      </form>
+      <a href="/logout" method="GET">Log out</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% for(var i=0; i < recipes.length; i++) { %>
+      <div class="container"></div>
+      <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Crispy roast potatoes</h5>
-          <h6 class="card-subtitle mb-2 text-muted">40 mins</h6>
-          <p class="card-text">Preheat oven to 450f, Peel potatoes, boil pan of water, 1tsp on baking soda, 1tsp of table
-            salt,
-            boil untill soft but not falling apart. Drain off potatoes and let steam evaporate. Once evaporated lay
-            potatoes on
-            baking tray and evenly cover with oil. Bake for 18 minutes at 200c / 400f turning halfway through (remember
-            potatoes are already cooked we just want to "crispen"
-            the edges) done! </p>
-          <h6 class="card-subtitle mb-2 text-muted">Bruce</h6>
-          <div style="display: flex; flex-direction: row; justify-content: space-evenly;" >
-            <div style="display: flex; justify-content: center;" >
-              <a href="">➕</a>
-              <p>0</p>
-            </div>
-            <div style="display: flex; justify-content: center;" >
-              <a href="">➖</a>
-              <p>0</p>
-            </div>
+          <h5 class="card-title"><%= recipes[i].title %> by - <%= recipes[i].username %></h5>
+          <h6 class="card-title"><%= recipes[i].time %></h6>
+          <p class="card-text"><%= recipes[i].description %> </p>
+          <div class="vote-container">
+            <a href="">➕</a>
+            <p><%= recipes[i].upvotes %></p>
+            <a href="">➖</a>
+            <p><%= recipes[i].downvotes %></p>
           </div>
         </div>
       </div>
-  </body>
+      <% } %>
+    </div>
+  </div>
+  </div>
+</body>
 
 </html>
