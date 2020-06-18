@@ -19,6 +19,7 @@
       <h2 class="display-4">Rate My Recipe</h2>
       <hr>
     </div>
+
     <div class="container">
       <h3>Post a recipe</h3>
       <form action="/add-recipe" method="POST">
@@ -45,6 +46,8 @@
       <a href="/logout" method="GET">Log out</a>
     </div>
   </div>
+
+
   <div class="container">
     <div class="row">
       <% for(var i=0; i < recipes.length; i++) { %>
@@ -70,7 +73,7 @@
                 <form action="/recipes/<%= recipes[i]._id %>?_method=DELETE" method="POST" class="user-options">
                   <button type="submit" class="btn-small red-text">delete</button>
                 </form>
-                <a class="user-options" href="/logout" method="GET">update</a>
+                <a class="user-options" href="/update-recipe/<%= recipes[i]._id %>" method="GET">update</a>
               </div>
               <% } %>
             </div>

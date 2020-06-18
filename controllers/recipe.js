@@ -1,7 +1,7 @@
 const User = require('../models/users.js');
 const Recipe = require('../models/recipes.js');
 
-module.exports = { index, addRecipe, delRecipe };
+module.exports = { index, addRecipe, delRecipe, updateRecipe };
 
 function index(req, res, next) {
   let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
@@ -39,12 +39,21 @@ function addRecipe(req, res, next) {
 }
 
 function delRecipe(req, res, next) {
-  console.log('FN delReipe >>> req.params:', req.params)
   Recipe.deleteOne({ '_id': req.params.id }, function (err, recipe) {
-    console.log('error >>>> ', err)
-    console.log('recipe >>>> ', recipe)
     res.redirect('/recipes');
   });
+}
+
+// Update recipe
+function updateRecipe(req, res, next) {
+  console.log('request in update recipe controller >>>>> req.params', req.params)
+  Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
+    console.log('error >>>>> err', err)
+    console.log('recipe from database >>>>> recipe', recipe)
+    res.render('update-recipe', {
+      recipe
+    });
+  })
 }
 
 

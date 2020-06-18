@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="/index.css">
+  <title>update your recipes</title>
+</head>
+
+<body>
+  <div class="container">
+    <p class="d-none"><%=recipe%></p>
+    <h3>Update a recipe</h3>
+    <form action="/update-recipe/**RECIPE_ID_HERE**" method="PUT">
+      <div class="form-group">
+        <label for="recipeTitle">Recipe Title</label>
+        <input value="<%=recipe.title%>" type="text" class="form-control" id="recipe-title" name="recipeTitle"
+          placeholder="eg.. nanas chicken stew" required />
+      </div>
+      <div class="form-group">
+        <label for="recipeTime">Time</label>
+        <input value="<%=recipe.time%>" type="text" class="form-control" id="recipe-time" name='recipeTime'
+          placeholder="eg.. 45 mins" required />
+      </div>
+      <div class="form-group">
+        <label for="recipeDescription">Recipe details</label>
+        <textarea type="text" class="form-control" id="recipe-details" name="recipeDescription" rows="3"
+          required> <%=recipe.description%> </textarea>
+      </div>
+      <input type="submit" class="btn btn-primary mb-2" value="Submit" />
+    </form>
+  </div>
+</body>
+</body>
+
+</html>
