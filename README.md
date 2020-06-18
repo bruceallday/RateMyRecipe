@@ -1,6 +1,6 @@
 # Rate my recipes!
 ## [Rate my recipes](https://google.com) 
-[](./Screenshot%202020-06-17%20at%2016.16.46.png)
+![](./Screenshot%202020-06-17%20at%2016.16.46.png)
 
 ### Run locally
 ???
