@@ -22,7 +22,7 @@
 ## Project planning
  * [Entity Relationship Diagram](https://app.lucidchart.com/invitations/accept/396b21e3-808b-4085-beb1-f905c40158f1)
  * [Trello board](https://trello.com/b/wYkU0vrk/ga)
- * [Wire frame designs](https://trello.com/b/wYkU0vrk/ga)
+ * [Wire frame designs](https://git.generalassemb.ly/Bruce-TO/RateMyRecipe/tree/master/wireframes)
 
 ## Features
  * Secure OAuth authentication and authorization 
