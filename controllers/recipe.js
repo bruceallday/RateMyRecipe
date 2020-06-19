@@ -1,7 +1,15 @@
 const User = require('../models/users.js');
 const Recipe = require('../models/recipes.js');
 
-module.exports = { index, addRecipe, delRecipe, findRecipe, updateRecipe };
+module.exports = {
+  index,
+  addRecipe,
+  delRecipe,
+  findRecipe,
+  updateRecipe,
+  updateUpVotes,
+  updateDownVotes
+};
 
 function index(req, res, next) {
   let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
@@ -65,6 +73,42 @@ function updateRecipe(req, res, next) {
         username: recipe.username,
         upvotes: recipe.upvotes,
         downvotes: recipe.downvotes,
+      }, function (err, updatedRecipe) {
+        res.redirect('/recipes');
+      });
+  })
+}
+
+function updateUpVotes(req, res) {
+  Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
+    console.log("recipe in update upvotes >>>>> recipe", recipe)
+    Recipe.replaceOne(
+      { '_id': req.params.id },
+      {
+        title: recipe.title,
+        time: recipe.time,
+        description: recipe.description,
+        username: recipe.username,
+        upvotes: recipe.upvotes + 1,
+        downvotes: recipe.downvotes,
+      }, function (err, updatedRecipe) {
+        res.redirect('/recipes');
+      });
+  })
+}
+
+function updateDownVotes(req, res) {
+  Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
+    console.log("recipe in update downvotes >>>>> recipe", recipe)
+    Recipe.replaceOne(
+      { '_id': req.params.id },
+      {
+        title: recipe.title,
+        time: recipe.time,
+        description: recipe.description,
+        username: recipe.username,
+        upvotes: recipe.upvotes,
+        downvotes: recipe.downvotes - 1,
       }, function (err, updatedRecipe) {
         res.redirect('/recipes');
       });

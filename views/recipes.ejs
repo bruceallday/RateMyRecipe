@@ -18,7 +18,6 @@
       <h2 class="display-4">Rate My Recipe</h2>
       <hr>
     </div>
-
     <div class="container">
       <h3>Post a recipe</h3>
       <form action="/add-recipe" method="POST">
@@ -55,16 +54,29 @@
               <h5 class="card-title"><%= recipes[i].title %> by - <%= recipes[i].username %></h5>
               <h6 class="card-title"><%= recipes[i].time %></h6>
               <p class="card-text"><%= recipes[i].description %> </p>
+              <% if (recipes[i].username !== user.name) { %>
               <div class="main-vote-container">
-                <div class="vote-container">
-                  <a class="voteThumb" href="">👍</a>
+                <form class="vote-form" action="/update-recipe/upvote/<%= recipes[i]._id %>" method=POST>
+                  <button type="submit" class="btn btn-light">👍</button>
                   <p class="voteNum"><%= recipes[i].upvotes %></p>
-                </div>
-                <div class="vote-container">
-                  <a class="voteThumb" href="">👎</a>
+                </form>
+                <form class="vote-form" action="/update-recipe/downvote/<%= recipes[i]._id %>" method=POST>
+                  <button type="submit" class="btn btn-light">👎</button>
                   <p class="voteNum"><%= recipes[i].downvotes %></p>
-                </div>
+                </form>
               </div>
+              <% } else { %>
+              <div class="main-vote-container">
+                <form class="vote-form">
+                  <button type="submit" class="btn btn-light">👍</button>
+                  <p class="voteNum"><%= recipes[i].upvotes %></p>
+                </form>
+                <form class="vote-form">
+                  <button type="submit" class="btn btn-light">👎</button>
+                  <p class="voteNum"><%= recipes[i].downvotes %></p>
+                </form>
+              </div>
+              <% } %>
               <% if (recipes[i].username === user.name) { %>
               <div class="user-options-container">
                 <form action="/recipes/<%= recipes[i]._id %>?_method=DELETE" method="POST" class="user-options">

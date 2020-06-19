@@ -26,16 +26,27 @@
 }
 
 .vote-container {
-  width: 25%;
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+.vote-form {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .voteThumb {
-  font-size: 1.4em;
+  padding: 1%;
 }
 
 .voteNum {
-  font-size: 1.1em;
+  margin-top: 20px;
+  margin-left: 10px;
+  align-self: center;
+  font-size: 1.3em;
 }
