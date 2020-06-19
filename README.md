@@ -1,14 +1,12 @@
 # Rate my recipes!
-### [Rate my recipes](https://google.com) 
 ![](./screenshots/screenshot.png)
 
 ### Installation
  1. fork/clone project.
- 2. cd into root of project.
- 3. ```yarn``` to install all dependancies.
- 4. ```yarn start``` to spin up the local server.
- 5. see the project at ```http://localhost:3000/``` siung up/log in with OAuth.
- 6. [Sign up and leave a recipe!](https://rate-my-recipe.herokuapp.com/)
+ 2. in the root of the project ```yarn``` to install all dependancies.
+ 3. ```yarn start``` to spin up a local server.
+ 4. view the project at ```http://localhost:3000/```
+ 5. [Sign up and leave a recipe!](https://rate-my-recipe.herokuapp.com/)
 
 ## Technologies used
 * [MongoDB](https://www.mongodb.com/)
@@ -20,7 +18,7 @@
 * [OAuth 2.0](https://oauth.net/2/)
 
 ## Project planning
- * [Entity Relationship Diagram](https://app.lucidchart.com/invitations/accept/396b21e3-808b-4085-beb1-f905c40158f1)
+ * [Entity Relationship Diagram (ERD)](https://app.lucidchart.com/invitations/accept/396b21e3-808b-4085-beb1-f905c40158f1)
  * [Trello board](https://trello.com/b/wYkU0vrk/ga)
  * [Wire frame designs](https://git.generalassemb.ly/Bruce-TO/RateMyRecipe/tree/master/wireframes)
 
@@ -30,8 +28,8 @@
  * Upvote or downvote other users recipes
  * Learn cool new recipes from cool new people
 
-## Model view controller methodology 
-Creating a new mongoose schema and exporting as a model in ```models/models.js```
+## Model View Controller - MVC methodology 
+Creating a new mongoose schema and exporting as a ```NewSchema``` **Model** in ```models/models.js```
 ```javascript
 const mongoose = require('mongoose');
 const newSchema = new mongoose.Schema({
@@ -42,7 +40,7 @@ const newSchema = new mongoose.Schema({
 });
 module.exports = mongoose.model('NewSchema', newSchema);
 ```
-Creat a controller to handle the data between the database and our .ejs views in ```controllers/controller.js```
+Index controller to handle the ```user``` and ```recipes``` data between our mongoDB and our .ejs **View** in ```controllers/controller.js```
 ```javascript
 function index(req, res, next) {
   //Search for user based on query
@@ -62,7 +60,7 @@ function index(req, res, next) {
     })
 }
 ```
-Defining the route that uses our recipe controller index function  ```routes/routes.js```
+Defining the route that invokes our recipe **Controller** ```recipeCtrl.index``` function in  ```routes/routes.js```
 ```javascript
 const recipeCtrl = require('../controllers/recipe')
 router.get('/recipes', isLoggedIn, recipeCtrl.index);
@@ -89,13 +87,16 @@ Use ejs template tagging to dynamically change the views based on the data passe
 ## Dynamic user card
 
 ## See authorised user options
-A dynamic simplified approach too CRUD operations. View delete and update options only on your own recipe card(s).
+View authorized delete and update CTA's only on your own recipe card(s).
 ![](./screenshots/recipe-card.png)
 
 ### Update your recipe
-Update your recipe in one click.
+Review, improve, reiterate over your recipes.
 ![](./screenshots/update-preview.png)
 
+## Roadmap
+ * Implement upvotes and downvotes that are calculated into an overall score. Think of a relevant creative name for this "score"
+ * Refactor code to follow a 'drier' approach using ejs includes.
 
 ## Environment
 * macOS catalina: 10.15.3
