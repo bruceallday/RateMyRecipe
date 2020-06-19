@@ -12,6 +12,5 @@ Once logged in and the form is completed the user will be able to see their reci
 
 ### Update form
 If a user wishes to update their recipe they can do so via the update form. If nothing is changed the previous values will be used. 
-
 ![]('./update-wireframe.png)
 
