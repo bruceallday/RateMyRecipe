@@ -10,6 +10,8 @@
   justify-content: space-evenly;
 }
 
+
+
 .main-container{
   margin: 1%;
 }
@@ -22,7 +24,7 @@
 
 .user-options {
   width: auto;
-  margin-left: 2% ;
+  margin-left: 5% ;
 }
 
 .vote-container {
@@ -56,4 +58,11 @@
   margin-left: 10px;
   align-self: center;
   font-size: 1.3em;
+}
+
+@media(max-width: 414px){
+  .main-vote-container {
+    width: 100%;
+    margin-bottom: 25px;
+  }
 }
