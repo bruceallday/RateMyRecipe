@@ -14,6 +14,9 @@
 * [Bootstrap](https://getbootstrap.com/)
 * [OAuth 2.0](https://oauth.net/2/)
 
+## Project planning
+ * [Entity Relationship Diagram](https://app.lucidchart.com/invitations/accept/396b21e3-808b-4085-beb1-f905c40158f1)
+
 ## Features
  * Secure OAuth authentication and authorization 
  * Add your recipes to the mongoDB atlas database
