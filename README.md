@@ -16,6 +16,7 @@
 
 ## Project planning
  * [Entity Relationship Diagram](https://app.lucidchart.com/invitations/accept/396b21e3-808b-4085-beb1-f905c40158f1)
+ * [Trello board](https://trello.com/b/wYkU0vrk/ga)
 
 ## Features
  * Secure OAuth authentication and authorization 
@@ -34,25 +35,6 @@ const newSchema = new mongoose.Schema({
   timestamps: true
 });
 module.exports = mongoose.model('NewSchema', newSchema);
-```
-Use ejs template tagging to dynamically change the views based on the data passed from the controller
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>
-  </head>
-  <body>
-    <div>
-      <% if (user) { %>
-      <a href="/logout">Log out</a>
-      <% } else { %>
-      <a href="/auth/google">Log In</a>
-      <% } %>
-    </div>
-  </body>
-</html>
 ```
 Creat a controller to handle the data between the database and our .ejs views
 ```javascript
@@ -79,6 +61,35 @@ Defining the route that uses our recipe controller index function
 const recipeCtrl = require('../controllers/recipe')
 router.get('/recipes', isLoggedIn, recipeCtrl.index);
 ```
+Use ejs template tagging to dynamically change the views based on the data passed from the controller
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+  </head>
+  <body>
+    <div>
+      <% if (user) { %>
+      <a href="/logout">Log out</a>
+      <% } else { %>
+      <a href="/auth/google">Log In</a>
+      <% } %>
+    </div>
+  </body>
+</html>
+```
+## Dynamic user card
+
+## See authorised user options
+A dynamic simplified approach too CRUD operations. View delete and update options only on your own recipe card(s).
+![](./recipe-card.png)
+
+### Update your recipe
+Update your recipe in one click.
+![](./update-preview.png)
+
 
 ## Environment
 * macOS catalina: 10.15.3
