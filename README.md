@@ -89,7 +89,7 @@ Use ejs template tagging to dynamically change the views based on the data passe
 ## Dynamic user card
 
 ## See authorised user options
-A dynamic simplified approach too CRUD operations. View delete and update options only on your own recipe card(s).
+View delete and update options only on your own recipe card(s).
 ![](./screenshots/recipe-card.png)
 
 ### Update your recipe
