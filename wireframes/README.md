@@ -2,6 +2,7 @@
 
 ## Langing page
 button will alternate between login/logout based on OAuth session token.
+
 ![]('./home-wireframe.png')
 
 ## Recipes "feed" page
