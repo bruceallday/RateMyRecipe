@@ -44,6 +44,13 @@
   padding: 1%;
 }
 
+.vote-disabled {
+  margin-top: 15px;
+  margin-left: 1px;
+  padding: 1%;
+  font-size: 1.3em;
+}
+
 .voteNum {
   margin-top: 20px;
   margin-left: 10px;

@@ -29,7 +29,6 @@ function index(req, res, next) {
     })
 }
 
-
 // Add new recipe
 function addRecipe(req, res, next) {
   const data = req.body;
@@ -47,7 +46,6 @@ function addRecipe(req, res, next) {
     });
   });
 }
-
 
 // Delete recipe
 function delRecipe(req, res, next) {

@@ -95,7 +95,8 @@ Review, improve, reiterate over your recipes.
 ![](./screenshots/update-preview.png)
 
 ## Roadmap
- * Implement upvotes and downvotes that are calculated into an overall score. Think of a relevant creative name for this "score"
+ * ~Implement upvotes and downvotes~ 
+ * Think of a relevant creative name for total "score"
  * Refactor code to follow a 'drier' approach using ejs includes.
 
 ## Environment

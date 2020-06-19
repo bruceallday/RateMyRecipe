@@ -68,11 +68,11 @@
               <% } else { %>
               <div class="main-vote-container">
                 <form class="vote-form">
-                  <button type="submit" class="btn btn-light">👍</button>
+                  <p class="vote-disabled">👍</p>
                   <p class="voteNum"><%= recipes[i].upvotes %></p>
                 </form>
                 <form class="vote-form">
-                  <button type="submit" class="btn btn-light">👎</button>
+                  <p class="vote-disabled">👎</p>
                   <p class="voteNum"><%= recipes[i].downvotes %></p>
                 </form>
               </div>
