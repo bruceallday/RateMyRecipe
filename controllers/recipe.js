@@ -29,6 +29,8 @@ function index(req, res, next) {
     })
 }
 
+
+// Add new recipe
 function addRecipe(req, res, next) {
   const data = req.body;
   User.findOne({ 'users._id': req.body.id }, function (error, user) {
@@ -46,6 +48,8 @@ function addRecipe(req, res, next) {
   });
 }
 
+
+// Delete recipe
 function delRecipe(req, res, next) {
   Recipe.deleteOne({ '_id': req.params.id }, function (err, recipe) {
     res.redirect('/recipes');
@@ -79,6 +83,7 @@ function updateRecipe(req, res, next) {
   })
 }
 
+// Update upvote
 function updateUpVotes(req, res) {
   Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
     console.log("recipe in update upvotes >>>>> recipe", recipe)
@@ -97,6 +102,7 @@ function updateUpVotes(req, res) {
   })
 }
 
+// Update downvote
 function updateDownVotes(req, res) {
   Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
     console.log("recipe in update downvotes >>>>> recipe", recipe)
