@@ -56,7 +56,6 @@ function findRecipe(req, res, next) {
 // Update recipe
 function updateRecipe(req, res, next) {
   Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
-    console.log('recipe from database to be updated >>>>>>> ', recipe)
     Recipe.replaceOne(
       { '_id': req.params.id },
       {
@@ -67,8 +66,6 @@ function updateRecipe(req, res, next) {
         upvotes: recipe.upvotes,
         downvotes: recipe.downvotes,
       }, function (err, updatedRecipe) {
-        console.log('error in update recipe >>>>>> ', err)
-        console.log('recipe in update after replace >>>>>> ', updatedRecipe)
         res.redirect('/recipes');
       });
   })
