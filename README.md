@@ -4,10 +4,11 @@
 
 ### Installation
  1. fork/clone project.
- 2. cd into root of project directory.
- 3. type ```yarn``` in your terminal to install all dependancies.
+ 2. cd into root of project.
+ 3. ```yarn``` to install all dependancies.
  4. ```yarn start``` to spin up the local server.
- 5. see the project at ```http://localhost:3000/``` and log in with OAuth.
+ 5. see the project at ```http://localhost:3000/``` siung up/log in with OAuth.
+ 6. [Live preview]()
 
 ## Technologies used
 * [MongoDB](https://www.mongodb.com/)
