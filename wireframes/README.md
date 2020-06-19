@@ -2,7 +2,7 @@
 
 ## Langing page
 button will alternate between login/logout based on OAuth session token.
-![]('./home-wireframe.png)
+![]('./home-wireframe.png')
 
 ## Recipes "feed" page
 A logged in user will be able to complete the recipe form. If not logged in, the user will be re-directed to OAuth login.
