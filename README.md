@@ -25,7 +25,7 @@
  * Learn cool new recipes from cool new people
 
 ## Model view controller methodology 
-Creating a new mongoose schema and exporting as a model
+Creating a new mongoose schema and exporting as a model in ```models/models.js```
 ```javascript
 const mongoose = require('mongoose');
 const newSchema = new mongoose.Schema({
@@ -36,7 +36,7 @@ const newSchema = new mongoose.Schema({
 });
 module.exports = mongoose.model('NewSchema', newSchema);
 ```
-Creat a controller to handle the data between the database and our .ejs views
+Creat a controller to handle the data between the database and our .ejs views in ```controllers/controller.js```
 ```javascript
 function index(req, res, next) {
   //Search for user based on query
@@ -56,12 +56,12 @@ function index(req, res, next) {
     })
 }
 ```
-Defining the route that uses our recipe controller index function  
+Defining the route that uses our recipe controller index function  ```routes/routes.js```
 ```javascript
 const recipeCtrl = require('../controllers/recipe')
 router.get('/recipes', isLoggedIn, recipeCtrl.index);
 ```
-Use ejs template tagging to dynamically change the views based on the data passed from the controller
+Use ejs template tagging to dynamically change the views based on the data passed from the controller ```views/index.html```
 ```html
 <!DOCTYPE html>
 <html lang="en">
