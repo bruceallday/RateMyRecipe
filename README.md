@@ -3,11 +3,10 @@
 
 ### Installation
  1. fork/clone project.
- 2. cd into root of project.
- 3. ```yarn``` to install all dependancies.
- 4. ```yarn start``` to spin up the local server.
- 5. see the project at ```http://localhost:3000/``` siung up/log in with OAuth.
- 6. [Sign up and leave a recipe!](https://rate-my-recipe.herokuapp.com/)
+ 2. in the root of the project ```yarn``` to install all dependancies.
+ 3. ```yarn start``` to spin up a local server.
+ 4. view the project at ```http://localhost:3000/```
+ 5. [Sign up and leave a recipe!](https://rate-my-recipe.herokuapp.com/)
 
 ## Technologies used
 * [MongoDB](https://www.mongodb.com/)
