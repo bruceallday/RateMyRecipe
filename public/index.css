@@ -1,3 +1,8 @@
+.page-body {
+  background: url(https://cdn.dribbble.com/users/38298/screenshots/1779052/shot.jpg);
+  background-repeat: repeat;
+}
+
 .main-vote-container {
   width: 20%;
   display: flex;
