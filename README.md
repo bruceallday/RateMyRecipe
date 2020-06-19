@@ -8,7 +8,7 @@
  3. ```yarn``` to install all dependancies.
  4. ```yarn start``` to spin up the local server.
  5. see the project at ```http://localhost:3000/``` siung up/log in with OAuth.
- 6. [Live preview]()
+ 6. [Sign up and leave a recipe!](https://rate-my-recipe.herokuapp.com/)
 
 ## Technologies used
 * [MongoDB](https://www.mongodb.com/)
