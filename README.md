@@ -1,6 +1,6 @@
 # Rate my recipes!
 ### [Rate my recipes](https://google.com) 
-![](./screenshot.png)
+![](./screenshots/screenshot.png)
 
 ### Installation
  1. fork/clone project.
@@ -22,6 +22,7 @@
 ## Project planning
  * [Entity Relationship Diagram](https://app.lucidchart.com/invitations/accept/396b21e3-808b-4085-beb1-f905c40158f1)
  * [Trello board](https://trello.com/b/wYkU0vrk/ga)
+ * [Wire frame designs](https://trello.com/b/wYkU0vrk/ga)
 
 ## Features
  * Secure OAuth authentication and authorization 
@@ -89,11 +90,11 @@ Use ejs template tagging to dynamically change the views based on the data passe
 
 ## See authorised user options
 A dynamic simplified approach too CRUD operations. View delete and update options only on your own recipe card(s).
-![](./recipe-card.png)
+![](./screenshots/recipe-card.png)
 
 ### Update your recipe
 Update your recipe in one click.
-![](./update-preview.png)
+![](./screenshots/update-preview.png)
 
 
 ## Environment
