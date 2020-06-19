@@ -11,29 +11,30 @@
 </head>
 
 <body>
-  <div class="container">
-    <p class="d-none"><%=recipe%></p>
-    <h3>Update a recipe</h3>
-    <form action="/update-recipe/**RECIPE_ID_HERE**" method="PUT">
-      <div class="form-group">
-        <label for="recipeTitle">Recipe Title</label>
-        <input value="<%=recipe.title%>" type="text" class="form-control" id="recipe-title" name="recipeTitle"
-          placeholder="eg.. nanas chicken stew" required />
-      </div>
-      <div class="form-group">
-        <label for="recipeTime">Time</label>
-        <input value="<%=recipe.time%>" type="text" class="form-control" id="recipe-time" name='recipeTime'
-          placeholder="eg.. 45 mins" required />
-      </div>
-      <div class="form-group">
-        <label for="recipeDescription">Recipe details</label>
-        <textarea type="text" class="form-control" id="recipe-details" name="recipeDescription" rows="3"
-          required> <%=recipe.description%> </textarea>
-      </div>
-      <input type="submit" class="btn btn-primary mb-2" value="Submit" />
-    </form>
+  <div class="jumbotron">
+    <div class="container">
+      <p class="d-none"><%=recipe%></p>
+      <h3>Update a recipe</h3>
+      <form action="/update-recipe/<%=recipe._id%>" method="POST">
+        <div class="form-group">
+          <label for="recipeTitle">Recipe Title</label>
+          <input value="<%=recipe.title%>" type="text" class="form-control" id="recipe-title" name="recipeTitle"
+            placeholder="eg.. nanas chicken stew" required />
+        </div>
+        <div class="form-group">
+          <label for="recipeTime">Time</label>
+          <input value="<%=recipe.time%>" type="text" class="form-control" id="recipe-time" name='recipeTime'
+            placeholder="eg.. 45 mins" required />
+        </div>
+        <div class="form-group">
+          <label for="recipeDescription">Recipe details</label>
+          <textarea type="text" class="form-control" id="recipe-details" name="recipeDescription" rows="3"
+            required> <%=recipe.description%> </textarea>
+        </div>
+        <input type="submit" class="btn btn-primary mb-2" value="Submit" />
+      </form>
+    </div>
   </div>
-</body>
 </body>
 
 </html>

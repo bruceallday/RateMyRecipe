@@ -44,5 +44,6 @@ router.post('/add-recipe', isLoggedIn, recipeCtrl.addRecipe);
 router.delete('/recipes/:id', isLoggedIn, recipeCtrl.delRecipe);
 
 // Update recipe
-router.get('/update-recipe/:id', isLoggedIn, recipeCtrl.updateRecipe);
+router.get('/update-recipe/:id', isLoggedIn, recipeCtrl.findRecipe);
+router.post('/update-recipe/:id', isLoggedIn, recipeCtrl.updateRecipe);
 module.exports = router;

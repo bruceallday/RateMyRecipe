@@ -1,7 +1,7 @@
 const User = require('../models/users.js');
 const Recipe = require('../models/recipes.js');
 
-module.exports = { index, addRecipe, delRecipe, updateRecipe };
+module.exports = { index, addRecipe, delRecipe, findRecipe, updateRecipe };
 
 function index(req, res, next) {
   let modelQuery = req.query.name ? { name: new RegExp(req.query.name, 'i') } : {};
@@ -44,16 +44,33 @@ function delRecipe(req, res, next) {
   });
 }
 
-// Update recipe
-function updateRecipe(req, res, next) {
-  console.log('request in update recipe controller >>>>> req.params', req.params)
+// Find recipe
+function findRecipe(req, res, next) {
   Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
-    console.log('error >>>>> err', err)
-    console.log('recipe from database >>>>> recipe', recipe)
     res.render('update-recipe', {
       recipe
     });
   })
 }
 
+// Update recipe
+function updateRecipe(req, res, next) {
+  Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
+    console.log('recipe from database to be updated >>>>>>> ', recipe)
+    Recipe.replaceOne(
+      { '_id': req.params.id },
+      {
+        title: req.body.recipeTitle,
+        time: req.body.recipeTime,
+        description: req.body.recipeDescription,
+        username: recipe.username,
+        upvotes: recipe.upvotes,
+        downvotes: recipe.downvotes,
+      }, function (err, updatedRecipe) {
+        console.log('error in update recipe >>>>>> ', err)
+        console.log('recipe in update after replace >>>>>> ', updatedRecipe)
+        res.redirect('/recipes');
+      });
+  })
+}
 
