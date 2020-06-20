@@ -78,32 +78,6 @@
                 </form>
               </div>
               <% } %>
-
-              <!-- <% if (recipes[i].username !== user.name) { %>
-              <div class="main-vote-container">
-                <form class="vote-form" action="/update-recipe/upvote/<%= recipes[i]._id%>/<%= user.id %>" method=POST>
-                  <button type="submit" class="btn btn-light">👍</button>
-                  <p class="voteNum"><%= recipes[i].upvotes.length %></p>
-                </form>
-                <form class="vote-form" action="/update-recipe/downvote/<%= recipes[i]._id %>/<%= user.id %>"
-                  method=POST>
-                  <button type="submit" class="btn btn-light">👎</button>
-                  <p class="voteNum"><%= recipes[i].downvotes.length %></p>
-                </form>
-              </div>
-              <% } else { %>
-              <div class="main-vote-container">
-                <div class="vote-form">
-                  <p class="vote-disabled">👍</p>
-                  <p class="voteNum"><%= recipes[i].upvotes %></p>
-                </div>
-                <div class="vote-form">
-                  <p class="vote-disabled">👎</p>
-                  <p class="voteNum"><%= recipes[i].downvotes %></p>
-                </div>
-              </div>
-              <% } %> -->
-
               <% if (recipes[i].username === user.name) { %>
               <div class="user-options-container">
                 <form action="/recipes/<%= recipes[i]._id %>?_method=DELETE" method="POST" class="user-options">

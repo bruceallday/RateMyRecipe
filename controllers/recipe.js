@@ -83,11 +83,7 @@ function updateRecipe(req, res, next) {
 
 // Update upvote
 function updateUpVotes(req, res) {
-  console.log('recipe id in updateVotes >>>>>> ', req.params.id,)
-  console.log('user_id in updateVotes >>>>>> ', req.params.user_id,)
-
   Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
-    console.log("recipe in update upvotes >>>>> recipe", recipe)
     recipe.upvotes.push(req.params.user_id)
     Recipe.replaceOne(
       { '_id': req.params.id },
@@ -107,7 +103,6 @@ function updateUpVotes(req, res) {
 // Update downvote
 function updateDownVotes(req, res) {
   Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
-    console.log("recipe in update downvotes >>>>> recipe", recipe)
     recipe.downvotes.push(req.params.user_id)
     Recipe.replaceOne(
       { '_id': req.params.id },
