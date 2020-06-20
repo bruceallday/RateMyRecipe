@@ -25,7 +25,7 @@
 ## Features
  * Secure OAuth authentication and authorization 
  * Add your recipes to the mongoDB atlas database
- * Upvote or downvote other users recipes
+ * Get one upvote or downvote per user recipe including your own
  * Learn cool new recipes from cool new people
 
 ## Model View Controller - MVC methodology 
@@ -86,8 +86,8 @@ Use ejs template tagging to dynamically change the views based on the data passe
 ```
 ## Dynamic user card
 
-## See authorised user options
-View authorized delete and update CTA's only on your own recipe card(s).
+## See authorized user options
+Interact with authorized delete and update, upvote and downvote CTA's your own recipe card(s).
 ![](./screenshots/recipe-card.png)
 
 ### Update your recipe
@@ -97,7 +97,7 @@ Review, improve, reiterate over your recipes.
 ## Roadmap
  * ~Implement upvotes and downvotes~ 
  * Think of a relevant creative name for total "score"
- * Refactor code to follow a 'drier' approach using ejs includes.
+ * Refactor code to follow a 'drier' approach using EJS includes.
 
 ## Environment
 * macOS catalina: 10.15.3
