@@ -5,8 +5,8 @@ const recipeSchema = new mongoose.Schema({
   time: String,
   description: String,
   username: String,
-  upvotes: Number,
-  downvotes: Number,
+  upvotes: [],
+  downvotes: [],
 }, {
   timestamps: true
 });

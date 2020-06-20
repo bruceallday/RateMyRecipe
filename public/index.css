@@ -10,8 +10,6 @@
   justify-content: space-evenly;
 }
 
-
-
 .main-container{
   margin: 1%;
 }
@@ -24,7 +22,7 @@
 
 .user-options {
   width: auto;
-  margin-left: 5% ;
+  margin-left: 2% ;
 }
 
 .vote-container {
@@ -51,6 +49,7 @@
   margin-left: 1px;
   padding: 1%;
   font-size: 1.3em;
+  user-select: none;
 }
 
 .voteNum {
@@ -58,6 +57,7 @@
   margin-left: 10px;
   align-self: center;
   font-size: 1.3em;
+  user-select: none;
 }
 
 @media(max-width: 414px){
@@ -65,4 +65,8 @@
     width: 100%;
     margin-bottom: 25px;
   }
+  .user-options {
+  width: auto;
+  margin-left: 5% ;
+}
 }

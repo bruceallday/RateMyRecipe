@@ -83,8 +83,12 @@ function updateRecipe(req, res, next) {
 
 // Update upvote
 function updateUpVotes(req, res) {
+  console.log('recipe id in updateVotes >>>>>> ', req.params.id,)
+  console.log('user_id in updateVotes >>>>>> ', req.params.user_id,)
+
   Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
     console.log("recipe in update upvotes >>>>> recipe", recipe)
+    recipe.upvotes.push(req.params.user_id)
     Recipe.replaceOne(
       { '_id': req.params.id },
       {
@@ -92,7 +96,7 @@ function updateUpVotes(req, res) {
         time: recipe.time,
         description: recipe.description,
         username: recipe.username,
-        upvotes: recipe.upvotes + 1,
+        upvotes: recipe.upvotes,
         downvotes: recipe.downvotes,
       }, function (err, updatedRecipe) {
         res.redirect('/recipes');
@@ -104,6 +108,7 @@ function updateUpVotes(req, res) {
 function updateDownVotes(req, res) {
   Recipe.findById({ '_id': req.params.id }, function (err, recipe) {
     console.log("recipe in update downvotes >>>>> recipe", recipe)
+    recipe.downvotes.push(req.params.user_id)
     Recipe.replaceOne(
       { '_id': req.params.id },
       {
@@ -112,7 +117,7 @@ function updateDownVotes(req, res) {
         description: recipe.description,
         username: recipe.username,
         upvotes: recipe.upvotes,
-        downvotes: recipe.downvotes - 1,
+        downvotes: recipe.downvotes,
       }, function (err, updatedRecipe) {
         res.redirect('/recipes');
       });

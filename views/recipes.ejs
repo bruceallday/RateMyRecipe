@@ -54,29 +54,69 @@
               <h5 class="card-title"><%= recipes[i].title %> by - <%= recipes[i].username %></h5>
               <h6 class="card-title"><%= recipes[i].time %></h6>
               <p class="card-text"><%= recipes[i].description %> </p>
-              <% if (recipes[i].username !== user.name) { %>
-              <div class="main-vote-container">
-                <form class="vote-form" action="/update-recipe/upvote/<%= recipes[i]._id %>" method=POST>
+              <!-- <div class="main-vote-container">
+
+                <form class="vote-form" action="/update-recipe/upvote/<%= recipes[i]._id%>/<%= user.id %>" method=POST>
                   <button type="submit" class="btn btn-light">👍</button>
-                  <p class="voteNum"><%= recipes[i].upvotes %></p>
+                  <p class="voteNum"><%= recipes[i].upvotes.length %></p>
                 </form>
-                <form class="vote-form" action="/update-recipe/downvote/<%= recipes[i]._id %>" method=POST>
+                <form class="vote-form" action="/update-recipe/downvote/<%= recipes[i]._id %>/<%= user.id %>"
+                  method=POST>
                   <button type="submit" class="btn btn-light">👎</button>
-                  <p class="voteNum"><%= recipes[i].downvotes %></p>
+                  <p class="voteNum"><%= recipes[i].downvotes.length %></p>
+                </form>
+              </div> -->
+
+              <% if (recipes[i].upvotes.includes(user.id) || recipes[i].downvotes.includes(user.id)) { %>
+              <div class="main-vote-container">
+                <div class="vote-form">
+                  <p class="vote-disabled">👍</p>
+                  <p class="voteNum"><%= recipes[i].upvotes.length %></p>
+                </div>
+                <div class="vote-form">
+                  <p class="vote-disabled">👎</p>
+                  <p class="voteNum"><%= recipes[i].downvotes.length %></p>
+                </div>
+              </div>
+              <% } else { %>
+              <div class="main-vote-container">
+                <form class="vote-form" action="/update-recipe/upvote/<%= recipes[i]._id%>/<%= user.id %>" method=POST>
+                  <button type="submit" class="btn btn-light">👍</button>
+                  <p class="voteNum"><%= recipes[i].upvotes.length %></p>
+                </form>
+                <form class="vote-form" action="/update-recipe/downvote/<%= recipes[i]._id %>/<%= user.id %>"
+                  method=POST>
+                  <button type="submit" class="btn btn-light">👎</button>
+                  <p class="voteNum"><%= recipes[i].downvotes.length %></p>
+                </form>
+              </div>
+              <% } %>
+
+              <!-- <% if (recipes[i].username !== user.name) { %>
+              <div class="main-vote-container">
+                <form class="vote-form" action="/update-recipe/upvote/<%= recipes[i]._id%>/<%= user.id %>" method=POST>
+                  <button type="submit" class="btn btn-light">👍</button>
+                  <p class="voteNum"><%= recipes[i].upvotes.length %></p>
+                </form>
+                <form class="vote-form" action="/update-recipe/downvote/<%= recipes[i]._id %>/<%= user.id %>"
+                  method=POST>
+                  <button type="submit" class="btn btn-light">👎</button>
+                  <p class="voteNum"><%= recipes[i].downvotes.length %></p>
                 </form>
               </div>
               <% } else { %>
               <div class="main-vote-container">
-                <form class="vote-form">
+                <div class="vote-form">
                   <p class="vote-disabled">👍</p>
                   <p class="voteNum"><%= recipes[i].upvotes %></p>
-                </form>
-                <form class="vote-form">
+                </div>
+                <div class="vote-form">
                   <p class="vote-disabled">👎</p>
                   <p class="voteNum"><%= recipes[i].downvotes %></p>
-                </form>
+                </div>
               </div>
-              <% } %>
+              <% } %> -->
+
               <% if (recipes[i].username === user.name) { %>
               <div class="user-options-container">
                 <form action="/recipes/<%= recipes[i]._id %>?_method=DELETE" method="POST" class="user-options">
