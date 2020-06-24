@@ -32,12 +32,14 @@ function index(req, res, next) {
 // Add new recipe
 function addRecipe(req, res, next) {
   const data = req.body;
+  console.log('dta in add recipe >>>>>', data)
+  console.log('req.body.id', req.body)
   User.findOne({ 'users._id': req.body.id }, function (error, user) {
     const newRecipe = new Recipe({
       title: data.recipeTitle,
       time: data.recipeTime,
       description: data.recipeDescription,
-      username: user.name,
+      username: data.userId,
       upvotes: 0,
       downvotes: 0
     });
