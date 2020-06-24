@@ -31,15 +31,15 @@ function index(req, res, next) {
 
 // Add new recipe
 function addRecipe(req, res, next) {
-  const data = req.body;
-  console.log('dta in add recipe >>>>>', data)
-  console.log('req.body.id', req.body)
-  User.findOne({ 'users._id': req.body.id }, function (error, user) {
+  const data = req.body.userId;
+  User.findOne({ '_id': data }, function (error, user) {
+    console.log("USER >>>>>>>", user)
+    console.log("ERROR >>>>>>>", error)
     const newRecipe = new Recipe({
       title: data.recipeTitle,
       time: data.recipeTime,
       description: data.recipeDescription,
-      username: data.userId,
+      username: user.name,
       upvotes: 0,
       downvotes: 0
     });
