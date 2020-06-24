@@ -31,8 +31,9 @@ function index(req, res, next) {
 
 // Add new recipe
 function addRecipe(req, res, next) {
-  const data = req.body.userId;
-  User.findOne({ '_id': data }, function (error, user) {
+  const data = req.body;
+  console.log('DATA >>>>>', data)
+  User.findOne({ '_id': data.userId }, function (error, user) {
     console.log("USER >>>>>>>", user)
     console.log("ERROR >>>>>>>", error)
     const newRecipe = new Recipe({
